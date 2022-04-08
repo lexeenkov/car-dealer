@@ -1,0 +1,61 @@
+<!-- 
+list of cars
+-->
+<table>
+<tr><th>car</th><th>power</th><th>max. speed</th><th>photo</th><th>rating</th><th>&nbsp;</th><th>&nbsp;</th></tr>
+<tr><td>car name</td><td>??? kW</td><td>??? km/h</td><td><img src="images/ID.jpg" alt="car name" width="150"></td><td>rating</td><th>&nbsp;</th><th>&nbsp;</th></tr>
+</table>
+
+
+<!-- 
+login
+-->
+<form method="post">
+	<p><label for="username">username:</label>
+	<input name="username" type="text" id="username" value="" size="20" maxlength="20"></p>
+	<p><label for="pass">password:</label>
+	<input name="pass" type="password" id="pass" size="20" maxlength="20"></p>
+	<p><input name="submit" type="submit" id="submit" value="Login"></p>
+</form>
+
+
+<!-- 
+logout
+-->
+<form method="post"> 
+  <p> 
+    <input name="logout" type="submit" id="logout" value="Logout"> 
+  </p> 
+</form> 
+
+
+<!-- 
+book a test drive
+-->
+<form method="post">
+	<p>Customer: <strong>user's first and last name</strong></p>
+	<p>Testing car: <strong>car name</strong></p>
+	<p><label for="date">Date of testing:</label>
+	<select id="date" name="date">
+		<option value="">-</option>
+	</select>
+	</p>
+	<p><input name="submit" type="submit" id="submit" value="Book a test drive"></p>
+</form>
+
+
+<!-- 
+add term
+-->
+<form method="post">
+	<p>Testing car: <strong>car name</strong></p>
+	<p>Date of test drive (day.month.year): 
+	<select name="day" id="day">
+	</select> . 
+	<select name="month" id="month">
+	</select> . 
+	<select name="year" id="year">
+	</select>
+	</p>
+	<p><input name="submit" type="submit" id="submit" value="Add term"></p>
+</form>
