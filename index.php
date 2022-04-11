@@ -30,19 +30,23 @@ Steps:
 
 */
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>A simple HTML document</title>
+</head>
+<body>
+    
+<?php include_once 'header.php' ?>
 <section>
 		<p>Welcome to the TWD sportcar website. Our company focuses primarily on the segment of exclusive and premium sports cars. We use a network of business partners across Europe to sell vehicles to meet our clients' needs as much as possible. Based on good contacts and low cost, TWD sportcar offers you the best vehicles on the market.</p>
 		<p>In addition to sales, we offer test drives on the circuit. If you are interested, choose from our <a href="cars.php">cars</a>.</p>
 		<p>If you have any questions, please feel free to contact us.</p>
-		<p><strong>TWD sportcar</strong><br>
-      FMFI UK<br>
-			Mlynská dolina<br>
-			842 48 Bratislava<br>
-			tel: +421 2 123 456 <br>
-			e-mail: info@twdsportcar.sk</p>
-<h4>LINKS TO THE provided sources:</h4>
-    <p><a href="functions.php">functions</a> , <a href="header.php">header</a> , <a href="html-forms.html">forms</a> , <a href="navigation.php">navigation</a> , <a href="db.php">db</a></p>
+		
 </section>
+    <?php include_once 'footer.php' ?>
+    </body>
+</html>
 <?php
 /*
 footer must be included
