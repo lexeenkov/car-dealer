@@ -12,3 +12,6 @@ GIT repository was created and this journal has been filled. Finnaly using githu
 
 **04-11**
 Basic HTML for log-in and sign-up pages , basic footer and header , database connection , beggining of the functions.
+
+**04-20**
+Login system works , finally. Tested and good to go
