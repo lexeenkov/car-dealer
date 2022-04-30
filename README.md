@@ -15,3 +15,13 @@ Basic HTML for log-in and sign-up pages , basic footer and header , database con
 
 **04-20**
 Login system works , finally. Tested and good to go
+
+**04-24**
+Car Gallery is almost done
+
+**04-30**
+Finished with gallery and image uploading. Did some tweaking and testing , almost done with "rating" feature , moving into the finish phase.
+Still some stuff to-do:
+- rating form
+- test-drive form and binding
+- Looooots of styling
