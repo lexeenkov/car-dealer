@@ -1,69 +1,97 @@
-body {
-	background-color: #FFFFFF;
-	font-family: Tahoma, Geneva, sans-serif;
-	margin: 0;
-	padding: 0;
+/*HEADER*/
+.logo div {
+    background-color: antiquewhite;
 }
-#main {
-  background-color: rgb(51, 51, 51);
-  padding-left: 150px;
+
+/*CAR GALLERY*/
+
+.wrapper h2{
+    font-family: cursive;
+    font-size: 28px;
+    font-weight: 600;
+    color: #111;
+    text-transform: uppercase;
 }
-header {
-  padding: 1em;
-	background-color: rgb(219, 193, 163);
-	border-top-right-radius: 2em;
+.gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    
 }
-h1 {
-  margin: 0;
-  color: rgb(51, 51, 51);
-  text-align: right;
+.gallery a {
+    width: 240px;
+    height: 540px;
+    margin: 20px 10px 0;
+    position: relative;
+    margin: 10px 5px;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.08);
+    animation: a .2s linear;
 }
-#gallery {
-  width: 150px;
-  background-color: rgb(51, 51, 51);
-  float: left;
-  display: block;
+.gallery a:hover{
+    opacity: 0.8;
 }
-nav {
-	height: 2em;
-  padding-top: 0.5em;
+.gallery a div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 236px;
+    background-color: #181818;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-nav a {
-  color: rgb(184, 152, 111);
-  padding: 0 1em;
-  text-decoration: none;
-  border-right: 5px double rgb(184, 152, 111); 
+.gallery a h3 {
+    font-family: monospace;
+    font-size: 20px;
+    font-weight: 700;
+    color: #111;
+    text-transform: uppercase;
+    text-decoration-style: none;
 }
-nav a:hover {
-  color: #FFFFFF;
+.gallery a p {
+    font-family: monospace;
+    font-size: 15px;
+    font-weight: 700;
+    color: #111;
+    text-transform: none;
+    text-decoration-style: none;
 }
-section {
-	color: rgb(51, 51, 51);
-	background-color: rgb(219, 193, 163);
-	padding: 1% 21% 1% 1%;
-	border-bottom-left-radius: 2em;
+
+/* HOVERING TEST DRIVE TEXT */
+
+.gallery a .text { 
+		position: absolute;		
+    top: 20%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 10;
+    opacity: 0;
+    transition: all 0.8s ease;			
 }
-section a {
-  color: #FFFFFF;
-  font-weight: bold;
+
+.gallery a .text h4 {		
+		margin: 0;		
+		color: white;
 }
-section th, section td {
-  border-bottom: 1px solid rgb(51, 51, 51);
+.gallery a:hover .text {
+	opacity: 1;
 }
-footer {
-	color: #FFFFFF;
-	background-color: rgb(51, 51, 51);
-	font-size: 0.8em;
-	text-align: right;
-	padding: 0.5%;
+
+/* ADMIN ADD_CAR MENU */
+
+.add-car {
+    background-color: azure;
+    height: auto;
+    width: 400px;
+    align-items: center;
 }
-.error {
-	color: rgb(159, 0, 0);
-	font-weight: bold;
+.add-car input{
+    margin: 20px 20px 0;
 }
-.ok {
-	color: #0000FF;
-}
-.center {
-	text-align: center;
-}
+
+

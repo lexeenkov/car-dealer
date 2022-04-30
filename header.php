@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,10 +18,24 @@
 	<header>
         <div class="logo">
             <a href=index.php><img src='images/logo.png' alt="PREMIUM MOTORSPORT"></a>
+        
             <ul class="nav">
-            <li><a href="cars.php"> CARS ></a></li>
-            <li><a href="signup.php"> SIGN UP></a></li>
-            <li><a href="login.php"> LOG IN ></a></li>
+            <li><a href="cars.php"> CARS </a></li>
+            <?php
+                if (isset($_SESSION["userid"])){
+                    if($_SESSION['username']=='admin'){
+                    echo '
+                    <li><a href="testdrives-admin.php"> TEST DRIVES </a>';
+                    }
+                    echo '
+                    <li><a href="action/logout.php"> LOG OUT</a></li>
+                    ';
+                }
+              else{ echo '
+            <li><a href="signup.php"> SIGN UP</a></li>
+            <li><a href="login.php"> LOG IN </a></li>
+            ';
+              }?>
             </ul>
         </div>
         

@@ -47,8 +47,4 @@ Steps:
     <?php include_once 'footer.php' ?>
     </body>
 </html>
-<?php
-/*
-footer must be included
-*/
-?>
+
