@@ -6,8 +6,9 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 <meta charset="utf-8">
-<title><?php if ($headder_txt == '') $headder_txt = 'TWD sportcar'; echo $headder_txt; ?></title>
+<title>Premium Deluxe Motorsport</title>
 <link href="styles.css" rel="stylesheet">
 </head>
 <body>
@@ -17,27 +18,22 @@ session_start();
 <div id="main">
 -->
 	<header>
-        <div class="logo">
-            <a href=index.php><img src='images/logo.png' alt="PREMIUM MOTORSPORT"></a>
-        
-            <ul class="nav">
-            <li><a href="cars.php"> CARS </a></li>
+        <div class="navigation">
+            <a class="logo" href=index.php><img class="logo" src='images/logo.png' alt="PREMIUM MOTORSPORT"></a>
+            <a href="cars.php"> CARS </a>
             <?php
                 if (isset($_SESSION["userid"])){
-                    if($_SESSION['username']=='admin'){
+                    
                     echo '
-                    <li><a href="testdrives-admin.php"> TEST DRIVES </a>';
-                    }
-                    echo '
-                    <li><a href="action/logout.php"> LOG OUT</a></li>
+                     <a href="action/logout.php"> LOG OUT</a> 
                     ';
                 }
               else{ echo '
-            <li><a href="signup.php"> SIGN UP</a></li>
-            <li><a href="login.php"> LOG IN </a></li>
+             <a href="signup.php"> SIGN UP</a> 
+             <a href="login.php"> LOG IN </a> 
             ';
               }?>
-            </ul>
+            
         </div>
         
 	</header>

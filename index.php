@@ -33,18 +33,33 @@ Steps:
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>A simple HTML document</title>
+    <title>Premium Deluxe Motorsport</title>
 </head>
 <body>
     
-<?php include_once 'header.php' ?>
+<?php 
+    include_once 'header.php'; 
+    echo "<div class='all'>";
+    include_once 'action/functions.php';
+    include_once 'action/db-act.php';
+    if(isset($_SESSION['username'])){
+    Welcome($conn, $_SESSION["userid"]);
+    }
+    ?>
 <section>
-		<p>Welcome to the TWD sportcar website. Our company focuses primarily on the segment of exclusive and premium sports cars. We use a network of business partners across Europe to sell vehicles to meet our clients' needs as much as possible. Based on good contacts and low cost, TWD sportcar offers you the best vehicles on the market.</p>
+    <div class="index">
+    
+		<p>Welcome to the PDM sportcar website. Our company focuses primarily on the segment of exclusive and premium sports cars. We use a network of business partners across Europe to sell vehicles to meet our clients' needs as much as possible. Based on good contacts and low cost, PDM sportcar offers you the best vehicles on the market.</p>
 		<p>In addition to sales, we offer test drives on the circuit. If you are interested, choose from our <a href="cars.php">cars</a>.</p>
 		<p>If you have any questions, please feel free to contact us.</p>
-		
+		</div>
 </section>
-    <?php include_once 'footer.php' ?>
+    
+    <?php 
+    echo '</div>';
+    echo '<div class="footer">';
+    include_once 'footer.php' ;
+    echo '</div>'?>
     </body>
 </html>
 

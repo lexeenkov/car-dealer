@@ -116,7 +116,7 @@ function GetCars($conn){
 function OutputCars($conn){
     include_once "action/db-act.php";
     $sql="
-SELECT c.idc, car_name , speed , power , imgFullName, AVG(points) as rating FROM sportcar_cars c LEFT JOIN sportcar_rating r on c.idc=r.idc GROUP BY car_name ORDER BY imgOrder;";
+SELECT c.idc, car_name , speed , power , imgFullName, ROUND(AVG(points), 1) as rating FROM sportcar_cars c LEFT JOIN sportcar_rating r on c.idc=r.idc GROUP BY car_name ORDER BY imgOrder;";
             $stmt=mysqli_stmt_init($conn);
              //if fails
             if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -128,7 +128,7 @@ SELECT c.idc, car_name , speed , power , imgFullName, AVG(points) as rating FROM
                 
             //check session
                echo '<pre>';
-var_dump($_SESSION);
+//var_dump($_SESSION);
 echo '</pre>';
                 
                 
@@ -136,21 +136,21 @@ echo '</pre>';
         while ($row=mysqli_fetch_assoc($result)){
        
             echo'
-        <div id="car-box">
-        <span class = "text"><h4>TEST DRIVE</h4></span>';
+        <div id="car-box">';
+        
                 if(isset($_SESSION['username']))
         {echo '
-        <a href=testdrives.php?idc='.$row["idc"].' style="background-image: url('."images/cars/".$row["imgFullName"].');"></a>
+        <a id="car-img" href=testdrives.php?idc='.$row["idc"].' style="background-image: url('."images/cars/".$row["imgFullName"].');"><span class = "text"><h4>TEST DRIVE</h4></span></a>
         ';} else{echo '<a href=login.php style="background-image: url('."images/cars/".$row["imgFullName"].');"></a>';};
             echo'
         <h3>'.$row["car_name"].'</h3>
-        <p>'.$row["power"].'</p>
-        <p>'.$row["speed"].'</p>';
+        <p>POWER: '.$row["power"].' HP</p>
+        <p>MAX SPEED: '.$row["speed"].' km/h</p>';
         // echo 2 RATING
         if(isset($_SESSION["username"])){
-    if(!empty($row["rating"])){echo '<p>'.$row["rating"].'</p>';}
+    if(!empty($row["rating"])){echo '<p>USER RATING: '.$row["rating"].' OUT OF 5</p>';}
        else{
-           echo '<p>No rating yet</p>';
+           echo '<p>NO RATING YET</p>';
        }
        
         // echo 3
@@ -158,8 +158,8 @@ echo '</pre>';
            if(isset($_SESSION['username']) && ($_SESSION['admin']===0)){
             echo
                 '
-                <form method="post" action="rating.php?idc='.$row["idc"].'">
-    <button type="submit">RATE THIS CAR</button>
+                <form id="rating" method="post" action="rating.php?idc='.$row["idc"].'">
+    <button id="rating" type="submit">RATE THIS CAR</button>
 </form>
                 ';
             //<form role="form"  id="rating-form" method="POST" action="rating.php?idc='.$row["idc"].'&uid='.$uid=$_SESSION["userid"].'">
@@ -173,7 +173,7 @@ echo '</pre>';
 
 function OutputTestdrives($conn){
     $idc=$_GET['idc'];
-    echo $idc;
+    //echo $idc;
     
     $result;
     
@@ -189,22 +189,24 @@ function OutputTestdrives($conn){
                 
                 $result=mysqli_stmt_get_result($stmt);
                 $row=mysqli_fetch_assoc($result);
-            echo '<h3>'.$row["car_name"].'</h3>';
+            echo '
+            <h3>Choose the desired date for test-drive:</h3>
+            <h3 id="car-name">Test drive of '.$row["car_name"].'</h3>';
        
             while ($row=mysqli_fetch_assoc($result)){
   
             if (isset($_SESSION['username']) && ($_SESSION['admin']===0)&& $row["uid"]==0){
-                echo "<table>";
+                echo "<table id='testdrives'>";
 //column1
   echo "<td>" .$row["date"]. "</td>";
 //column2
   echo "<td>
-  <a href='action/book-act.php?date=".$row["date"]."&idc=".$idc."&uid=".$_SESSION["userid"]."'><button>BOOK</button></a>
+  <a href='action/book-act.php?date=".$row["date"]."&idc=".$idc."&uid=".$_SESSION["userid"]."'><button id='book'>BOOK</button></a>
   </td>
   ";  
             }
       //column 3
- echo "<table>";  
+ echo "<table id='testdrives'>";  
   if (isset($_SESSION['username']) && ($_SESSION['admin']===1)){
        
       if(!empty($row["name"])){
@@ -217,7 +219,7 @@ function OutputTestdrives($conn){
       else { // TEST DRIVE delete method
           echo '<td>
           <form method="post" action="action/delete.php?date='.$row["date"].'&idc='.$idc.'">
-    <button name="test">DELETE</button>
+    <button id="book">DELETE</button>
 </form></td>';
     
       }
@@ -240,18 +242,37 @@ function OutputTestdrives($conn){
 }}}
 
 function deleteTerm($idc, $date, $conn){
-    $dat='"'.strval($date).'"';
+    $$dat="'".strval($date)."'";
     echo $dat;
-    if(isset($_POST['test'])){
+    echo $idc;
+    
       $result;
     $sql = "DELETE FROM sportcar_terms WHERE date=? AND idc=?;";
+    //    $sql="SELECT name from sportcar_users WHERE usersID=?";
+
     $stmt = mysqli_stmt_init($conn); // prepared statement to avoid sql injections
-    if(!mysqli_stmt_prepare($stmt, $sql)){
-        // header for error;
-    exit();    
-    };
+mysqli_stmt_prepare($stmt, $sql);
     mysqli_stmt_bind_param($stmt, "si", $date, $idc);
-    mysqli_stmt_execute($stmt);
-    }
+      mysqli_stmt_execute($stmt);
+
     header ('location: ../testdrives.php?idc='.$idc);
+}
+
+function Welcome($conn, $uid){
+   if(isset($_SESSION['username'])){
+    
+    $sql="SELECT name from sportcar_users WHERE usersID=?";
+            $stmt=mysqli_stmt_init($conn);
+             //if fails
+            if(!mysqli_stmt_prepare($stmt, $sql)){
+                echo "MYSQL failed";
+                header ("Location: index.php");
+            } else{
+                mysqli_stmt_bind_param($stmt, "i", $uid);
+                mysqli_stmt_execute($stmt);
+                $result=mysqli_stmt_get_result($stmt);
+                $row=mysqli_fetch_assoc($result);
+            echo "<h3>Hello, ".$row["name"].", you are logged in!</h3>";
+            }
+}
 }

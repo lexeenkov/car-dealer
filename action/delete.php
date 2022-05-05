@@ -9,4 +9,4 @@ $date=$_GET["date"];
 //prepare and initialize sql
     include_once "db-act.php";
     include_once "functions.php";
-deleteTerm($idc, $date, $conn);
+deleteTerm($idc,$date,$conn);

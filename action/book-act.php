@@ -23,6 +23,6 @@ echo $uid.'  ';
                 mysqli_stmt_execute($stmt);
               
                     }
-header("location: ../testdrives.php?idc=$idc");
+header("location: ../testdrives.php?idc=$idc&book=success");
 // header with success mesage
 

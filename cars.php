@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>A simple HTML document</title>
+    <title>Premium Deluxe Motorsport</title>
 </head>
 <body>
     
@@ -18,16 +18,23 @@
     // get the cars
     //have the cars
  GetCars($conn);
-    if (!empty($cars_array)) { 
-	foreach($product_array as $key=>$value){}}
+    if (isset($_GET["error"])){
+        if($_GET["error"] == "success"){
+            echo "<p id='success'>Your rating is submitted!</p>";
+        }} 
+   /* if (!empty($cars_array)) { 
+	foreach($product_array as $key=>$value){}}*/
 ?>
-    
+    <h2>Car Gallery</h2>
     <div class="wrapper">
-        <h2>Car Gallery</h2>
+        
     <div class="gallery">
         <?php
         include_once "action/db-act.php";
         include_once "action/functions.php";
+        
+        
+        
         OutputCars($conn);
       ?>
         </div>
@@ -39,7 +46,7 @@
     echo '
     <div class="add-car">
     <form action="action/car-upload.php" method="post" enctype="multipart/form-data">
-    <input type="text" name="filename" placeholder="Image Name..">
+    
     <input type="text" name="car-name" placeholder="Car Name..">
     <input type="number" name="power" placeholder="Power of the car..">
     <input type="number" name="speed" placeholder="Max speed..">
