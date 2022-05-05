@@ -36,3 +36,4 @@ Finished with all the functionality , working on style now
 - working systems for login, rating and testdrive
 
 Final thoughts soon. Feels good.
+UPD: added .zip file for the ease of download
