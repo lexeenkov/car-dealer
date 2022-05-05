@@ -25,3 +25,6 @@ Still some stuff to-do:
 - rating form
 - test-drive form and binding
 - Looooots of styling
+
+**04-04**
+Finished with all the functionality , working on style now
