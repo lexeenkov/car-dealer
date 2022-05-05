@@ -26,10 +26,10 @@ Still some stuff to-do:
 - test-drive form and binding
 - Looooots of styling
 
-**04-04**
+**05-04**
 Finished with all the functionality , working on style now
 
-**04-05**
+**05-05**
 4 hours of styling, testing and polishing. As a result:
 - adequate responsive style
 - a bunch of new cars
