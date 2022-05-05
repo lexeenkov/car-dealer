@@ -20,7 +20,7 @@
     align-content: flex-start;
     
 }
-.gallery a {
+.gallery div {
     width: 240px;
     height: 540px;
     margin: 20px 10px 0;
@@ -30,10 +30,10 @@
     border: 1px solid rgba(0,0,0,.08);
     animation: a .2s linear;
 }
-.gallery a:hover{
+.gallery div:hover{
     opacity: 0.8;
 }
-.gallery a div {
+#car-box a {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -45,7 +45,7 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-.gallery a h3 {
+.gallery div h3 {
     font-family: monospace;
     font-size: 20px;
     font-weight: 700;
@@ -53,7 +53,7 @@
     text-transform: uppercase;
     text-decoration-style: none;
 }
-.gallery a p {
+.gallery div p {
     font-family: monospace;
     font-size: 15px;
     font-weight: 700;
@@ -64,7 +64,7 @@
 
 /* HOVERING TEST DRIVE TEXT */
 
-.gallery a .text { 
+.gallery div .text { 
 		position: absolute;		
     top: 20%;
 		left: 50%;
@@ -74,11 +74,11 @@
     transition: all 0.8s ease;			
 }
 
-.gallery a .text h4 {		
+.gallery div .text h4 {		
 		margin: 0;		
 		color: white;
 }
-.gallery a:hover .text {
+.gallery div:hover .text {
 	opacity: 1;
 }
 
@@ -93,5 +93,8 @@
 .add-car input{
     margin: 20px 20px 0;
 }
+
+/* TABLE WITH TEST DRIVES */
+
 
 

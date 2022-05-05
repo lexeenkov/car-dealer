@@ -26,3 +26,7 @@ RATING
 
 - insert into rating (uid , idc , points) values ? ? ?
 
+----
+RANDOM
+
+- on index page "Hello , User"
