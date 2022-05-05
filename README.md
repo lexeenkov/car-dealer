@@ -28,3 +28,11 @@ Still some stuff to-do:
 
 **04-04**
 Finished with all the functionality , working on style now
+
+**04-05**
+4 hours of styling, testing and polishing. As a result:
+- adequate responsive style
+- a bunch of new cars
+- working systems for login, rating and testdrive
+
+Final thoughts soon. Feels good.
